@@ -1,3 +1,58 @@
 {
-  "posts": []
+  "tours": [
+    {
+      "title": "bbbbbbbbbbbb",
+      "description": "bbbbbbbb",
+      "price": 2000,
+      "image": "https://svoboda.travel/images/marokko/marrakesh/Marrakesh.jpg",
+      "category": "",
+      "id": 2
+    },
+    {
+      "title": "bbb",
+      "description": "bbb",
+      "price": 200,
+      "image": "https://svoboda.travel/images/marokko/marrakesh/Marrakesh.jpg",
+      "category": "",
+      "id": 3
+    },
+    {
+      "title": "vvvvv",
+      "description": "vvvvv",
+      "price": 300,
+      "image": "https://www.vash-otdyh.by/images/Blog/OAE/Chto-ne-obyazatelno-delat/%D0%A3_%D0%AD%D0%BC%D0%B8%D1%80%D0%B0%D1%82%D0%BE%D0%B2_%D1%81%D1%83%D1%89%D0%B5%D1%81%D1%82%D0%B2%D1%83%D0%B5%D1%82_%D1%81%D0%B2%D0%BE%D1%8F_%D0%BE%D1%81%D0%BE%D0%B1%D0%B0%D1%8F_%D0%B0%D1%82%D0%BC%D0%BE%D1%81%D1%84%D0%B5%D1%80%D0%B0.jpg",
+      "category": "",
+      "id": 4
+    },
+    {
+      "title": "ggggggggg",
+      "description": "ggggggggg",
+      "price": 40000,
+      "image": "https://www.vash-otdyh.by/images/Blog/OAE/Chto-ne-obyazatelno-delat/%D0%A3_%D0%AD%D0%BC%D0%B8%D1%80%D0%B0%D1%82%D0%BE%D0%B2_%D1%81%D1%83%D1%89%D0%B5%D1%81%D1%82%D0%B2%D1%83%D0%B5%D1%82_%D1%81%D0%B2%D0%BE%D1%8F_%D0%BE%D1%81%D0%BE%D0%B1%D0%B0%D1%8F_%D0%B0%D1%82%D0%BC%D0%BE%D1%81%D1%84%D0%B5%D1%80%D0%B0.jpg",
+      "category": "",
+      "id": 5
+    },
+    {
+      "title": "уууууууууу",
+      "description": "ууууууууу",
+      "price": 56565,
+      "image": "https://www.vash-otdyh.by/images/Blog/OAE/Chto-ne-obyazatelno-delat/%D0%A3_%D0%AD%D0%BC%D0%B8%D1%80%D0%B0%D1%82%D0%BE%D0%B2_%D1%81%D1%83%D1%89%D0%B5%D1%81%D1%82%D0%B2%D1%83%D0%B5%D1%82_%D1%81%D0%B2%D0%BE%D1%8F_%D0%BE%D1%81%D0%BE%D0%B1%D0%B0%D1%8F_%D0%B0%D1%82%D0%BC%D0%BE%D1%81%D1%84%D0%B5%D1%80%D0%B0.jpg",
+      "category": "",
+      "id": 6
+    },
+    {
+      "title": "a",
+      "description": "a",
+      "price": 7,
+      "image": "https://hips.hearstapps.com/hmg-prod/images/colors-of-italy-series-manarola-village-cinque-royalty-free-image-1622081263.jpg",
+      "category": "",
+      "id": 7
+    }
+  ],
+  "category": [
+    {
+      "name": "tour",
+      "id": 1
+    }
+  ]
 }

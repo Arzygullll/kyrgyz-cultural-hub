@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.226);
+  background-color: rgba(0, 0, 0, 0.226);
   padding: 10px 0;
 }
 
@@ -46,14 +46,106 @@
   color: #545454;
 }
 
-.auth-links a {
-  margin-left: 20px;
-  text-decoration: none;
+.menu-toggle {
+  cursor: pointer;
   color: #fff;
-  font-size: 16px;
-  transition: color 0.3s ease;
+  font-size: 24px;
 }
 
-.auth-links a:hover {
+.menu-toggle:hover {
   color: #007bff;
+}
+
+.modal-offcanvas {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  background-color: #535353a2;
+  z-index: 1050;
+  box-shadow: -1px 0px 10px rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.modal-offcanvas .offcanvas-header {
+  border-bottom: none;
+  padding: 0;
+}
+
+.modal-offcanvas .offcanvas-title {
+  font-size: 1.25rem;
+  margin-bottom: 0;
+}
+
+.modal-offcanvas .offcanvas-body {
+  padding: 30px;
+}
+
+.modal-offcanvas .auth-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-decoration: dashed;
+}
+
+.modal-offcanvas .auth-link:hover {
+  color: #007bff;
+}
+.textAdmin {
+  text-align: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.modal-offcanvas .textAdmin:hover {
+  color: #007bff;
+}
+.me-2 {
+  width: 220px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  text-align: center;
+}
+
+.modal-offcanvas .search-button {
+  width: 90px;
+  height: 30px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.226);
+  font-size: 16px;
+  margin-top: 20px;
+  text-decoration: none;
+  margin-left: 15px;
+  border-radius: 20px;
+}
+
+.modal-offcanvas .search-button:hover {
+  color: #319b38;
+}
+.modal-offcanvas .close-button {
+  width: 90px;
+  height: 30px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.226);
+  font-size: 16px;
+  margin-top: 20px;
+  text-decoration: none;
+  margin-left: 10px;
+  border-radius: 20px;
+}
+
+.modal-offcanvas .close-button:hover {
+  color: #dc3545;
+}
+
+@media (max-width: 576px) {
+  .modal-offcanvas {
+    width: 100%;
+    height: 100%;
+  }
 }

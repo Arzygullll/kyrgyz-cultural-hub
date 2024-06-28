@@ -1,7 +1,7 @@
 import { Pagination, Stack, Typography } from "@mui/material";
 import React from "react";
 
-const PagintaionContolled = ({ page, count, handleChange }) => {
+const PagintaionControlled = ({ page, count, handleChange }) => {
   return (
     <div>
       <Stack spacing={2}>
@@ -17,4 +17,4 @@ const PagintaionContolled = ({ page, count, handleChange }) => {
   );
 };
 
-export default PagintaionContolled;
+export default PagintaionControlled;

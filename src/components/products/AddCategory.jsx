@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useProduct } from "../../context/TourContextProvider";
 
 const AddCategory = ({ open, handleClose }) => {
+  const { createCategory } = useProduct();
   const style = {
     position: "absolute",
     top: "30%",
@@ -15,7 +16,6 @@ const AddCategory = ({ open, handleClose }) => {
     p: 4,
   };
   const [category, setCategory] = useState("");
-  const { createCategory } = useProduct();
   const handleClick = () => {
     if (!category.trim()) {
       alert("Введите данные!");

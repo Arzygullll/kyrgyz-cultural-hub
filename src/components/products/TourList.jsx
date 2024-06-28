@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { useProduct } from "../../context/TourContextProvider";
 import TourCard from "./TourCard";
 import { Box } from "@mui/material";
-import PagintaionContolled from "./PaginationContolled";
+import PagintaionControlled from "./PaginationControlled";
 
 const TourList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -38,7 +38,7 @@ const TourList = () => {
           <TourCard key={elem.id} elem={elem} />
         ))}
       </Box>
-      <PagintaionContolled
+      <PagintaionControlled
         page={page}
         count={count}
         handleChange={handleChange}

@@ -34,7 +34,7 @@ const CartContextProvider = ({ children }) => {
     let newProduct = {
       item: product,
       count: 1,
-      subPrice: 0,
+      subPrice: product.price,
     };
     // проверяем есть ли уже продукт, который хотим добавить в корзину
     let productToFind = cart.products.filter(

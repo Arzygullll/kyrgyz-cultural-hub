@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import videoBg from "../homePage/assets/videoplay.mp4";
 import "../homePage/HeaderHomePage.css";
+import Footer from "./Footer";
 
 const HeaderHomePage = () => {
   useEffect(() => {
@@ -142,6 +143,9 @@ const HeaderHomePage = () => {
       </section>
       {/*  */}
       <section className="section4"></section>
+      <footer className="footer">
+        <Footer />
+      </footer>
     </div>
   );
 };

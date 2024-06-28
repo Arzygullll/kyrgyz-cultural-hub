@@ -43,7 +43,7 @@ const Cart = () => {
                 </TableCell>
                 <TableCell>{elem.item.title}</TableCell>
                 <TableCell>{elem.item.category}</TableCell>
-                <TableCell>{elem.item.price}</TableCell>
+                <TableCell>{elem.item.price}сом</TableCell>
                 <TableCell>
                   <input
                     type="number"
@@ -55,7 +55,7 @@ const Cart = () => {
                     }
                   />
                 </TableCell>
-                <TableCell>{elem.subPrice}</TableCell>
+                <TableCell>{elem.subPrice}сом</TableCell>
                 <TableCell>
                   <Button onClick={() => deleteProductFromCart(elem.item.id)}>
                     DELETE

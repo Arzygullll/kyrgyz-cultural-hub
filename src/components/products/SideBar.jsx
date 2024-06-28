@@ -1,53 +1,120 @@
+import React, { useEffect, useState } from "react";
+import { useProduct } from "../../context/TourContextProvider";
 import {
   FormControl,
   FormControlLabel,
-  FormLabel,
   Paper,
   Radio,
   RadioGroup,
   TextField,
+  InputAdornment,
+  IconButton,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import { useProduct } from "../../context/TourContextProvider";
 import { useSearchParams } from "react-router-dom";
+import SearchIcon from "@mui/icons-material/Search";
+import ClearIcon from "@mui/icons-material/Clear";
 
 const SideBar = () => {
   const { categories, getCategories, fetchByParams } = useProduct();
+
   useEffect(() => {
     getCategories();
   }, []);
-  //! search
+
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState(searchParams.get("q") || "");
 
   useEffect(() => {
-    setSearchParams({
-      q: search,
-    });
-  }, [search]);
+    const params = {};
+    if (search) {
+      params.q = search;
+    }
+    const category = searchParams.get("category");
+    if (category) {
+      params.category = category;
+    }
+    setSearchParams(params);
+  }, [search, searchParams, setSearchParams]);
+
+  const handleClearSearch = () => {
+    setSearch("");
+  };
+
   return (
-    <Paper sx={{ p: 2, margin: "25px" }}>
+    <Paper
+      sx={{
+        p: 1,
+        borderRadius: "10px",
+        boxShadow: "0 1px 2px rgba(0, 0, 0, 0.1)",
+        width: "50%",
+        margin: "auto",
+        textAlign: "center",
+        marginTop: "0.5rem",
+        marginBottom: "-1.5rem",
+      }}
+    >
       <TextField
         fullWidth
-        label="search..."
-        variant="standard"
+        size="small"
+        variant="outlined"
+        value={search}
         onChange={(e) => setSearch(e.target.value)}
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <IconButton onClick={() => console.log("Search clicked")}>
+                <SearchIcon fontSize="small" />
+              </IconButton>
+            </InputAdornment>
+          ),
+          endAdornment: (
+            <InputAdornment position="end">
+              {search && (
+                <IconButton onClick={handleClearSearch}>
+                  <ClearIcon fontSize="small" />
+                </IconButton>
+              )}
+            </InputAdornment>
+          ),
+          placeholder: "Search...",
+          sx: { fontSize: "0.9rem" },
+        }}
+        sx={{
+          marginBottom: "0.3rem",
+          "& .MuiInputBase-input": {
+            textAlign: "center",
+            fontSize: "0.9rem",
+          },
+        }}
       />
-      <FormControl>
-        <FormLabel id="demo-radio-buttons-group-label">Category</FormLabel>
+      <FormControl
+        component="fieldset"
+        sx={{ width: "100%", textAlign: "center" }}
+      >
         <RadioGroup
-          aria-labelledby="demo-radio-buttons-group-label"
-          defaultValue="female"
-          name="radio-buttons-group"
+          row
+          aria-label="category"
+          name="category"
           onChange={(e) => fetchByParams("category", e.target.value)}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            width: "100%",
+          }}
         >
-          <FormControlLabel value={"all"} control={<Radio />} label="ALL" />
+          <FormControlLabel
+            value="all"
+            control={<Radio size="small" />}
+            label="All categories"
+            sx={{ fontSize: "0.9rem" }}
+          />
           {categories.map((elem) => (
             <FormControlLabel
               key={elem.id}
               value={elem.name}
+              control={<Radio size="small" />}
               label={elem.name}
-              control={<Radio />}
+              sx={{ fontSize: "0.9rem" }}
             />
           ))}
         </RadioGroup>

@@ -70,10 +70,7 @@ const Navbar = () => {
                 <Link to="/knowledge">Что нужно знать</Link>
               </li>
               <li>
-                <Link to="/blog">Блог</Link>
-              </li>
-              <li>
-                <Link to="/about">О проекте</Link>
+                <Link to="/etnocollection">Этноколлекция</Link>
               </li>
               <li>
                 <Link to="/contact">Контакты</Link>

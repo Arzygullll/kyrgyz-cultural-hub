@@ -1,40 +1,69 @@
-import { Box, Button, Modal } from "@mui/material";
+import { Box, Button, Modal, Typography } from "@mui/material";
 import React from "react";
 import { useCart } from "../../context/CartContextProvider";
 
 const Detail = ({ elem, open, handleClose }) => {
   const { addProductToCart, checkProductInCart } = useCart();
-  const style = {
+
+  const modalStyle = {
     position: "absolute",
-    top: "30%",
-    left: "30%",
-    width: 700,
-    display: "flex",
-    border: "2px solid black",
-    boxShadow: 24,
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 600,
+    maxWidth: "95%",
     bgcolor: "background.paper",
+    boxShadow: 24,
+    borderRadius: "8px",
     p: 4,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   };
+
   return (
     <Modal open={open} onClose={handleClose}>
-      <Box sx={style}>
-        <div>
-          <img width={300} src={elem.image} alt="" />
-        </div>
-        <div>
-          <h1>{elem.title}</h1>
-          <p>{elem.description}</p>
-          <p>{elem.price}</p>
-        </div>
-        <div style={{ marginTop: "auto" }}>
+      <Box sx={modalStyle}>
+        <img
+          src={elem.image}
+          alt={elem.title}
+          style={{
+            width: "100%",
+            borderRadius: "8px 8px 0 0",
+            objectFit: "cover",
+          }}
+        />
+        <Box sx={{ p: 2, textAlign: "left", width: "100%" }}>
+          <Typography variant="h4" gutterBottom>
+            {elem.title}
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            {elem.description}
+          </Typography>
+          <Typography variant="h6" gutterBottom>
+            {elem.price.toFixed(2)}kgs
+          </Typography>
+        </Box>
+        <Box sx={{ mt: "auto" }}>
           {checkProductInCart(elem.id) ? (
-            <Button>Alredy in cart</Button>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => addProductToCart(elem)}
+              sx={{ borderRadius: "20px", fontWeight: "bold", px: 4 }}
+            >
+              Купить за {elem.price.toFixed(2)}kgs
+            </Button>
           ) : (
-            <Button onClick={() => addProductToCart(elem)}>
-              Buy For {elem.price}
+            <Button
+              variant="contained"
+              disabled
+              sx={{ borderRadius: "20px", fontWeight: "bold", px: 4 }}
+            >
+              Уже в корзине
             </Button>
           )}
-        </div>
+        </Box>
       </Box>
     </Modal>
   );

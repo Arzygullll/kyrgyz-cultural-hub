@@ -9,6 +9,7 @@ import {
   TextField,
   InputAdornment,
   IconButton,
+  Box,
 } from "@mui/material";
 import { useSearchParams } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
@@ -46,51 +47,55 @@ const SideBar = () => {
         p: 1,
         borderRadius: "10px",
         boxShadow: "0 1px 2px rgba(0, 0, 0, 0.1)",
-        width: "50%",
-        margin: "auto",
+        width: "100%",
         textAlign: "center",
-        marginTop: "0.5rem",
-        marginBottom: "-1.5rem",
+        background: "rgba(0, 0, 0, 0.226)",
+        margin: "auto",
+        mt: 5.8,
       }}
     >
-      <TextField
-        fullWidth
-        size="small"
-        variant="outlined"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <IconButton onClick={() => console.log("Search clicked")}>
-                <SearchIcon fontSize="small" />
-              </IconButton>
-            </InputAdornment>
-          ),
-          endAdornment: (
-            <InputAdornment position="end">
-              {search && (
-                <IconButton onClick={handleClearSearch}>
-                  <ClearIcon fontSize="small" />
-                </IconButton>
-              )}
-            </InputAdornment>
-          ),
-          placeholder: "Search...",
-          sx: { fontSize: "0.9rem" },
-        }}
+      <Box
         sx={{
-          marginBottom: "0.3rem",
-          "& .MuiInputBase-input": {
-            textAlign: "center",
-            fontSize: "0.9rem",
-          },
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          mb: 2,
         }}
-      />
-      <FormControl
-        component="fieldset"
-        sx={{ width: "100%", textAlign: "center" }}
       >
+        <TextField
+          size="small"
+          variant="outlined"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <IconButton onClick={() => console.log("Search clicked")}>
+                  <SearchIcon fontSize="small" />
+                </IconButton>
+              </InputAdornment>
+            ),
+            endAdornment: (
+              <InputAdornment position="end">
+                {search && (
+                  <IconButton onClick={handleClearSearch}>
+                    <ClearIcon fontSize="small" />
+                  </IconButton>
+                )}
+              </InputAdornment>
+            ),
+            placeholder: "Поиск...",
+            sx: { fontSize: "0.9rem" },
+          }}
+          sx={{
+            "& .MuiInputBase-input": {
+              textAlign: "center",
+              fontSize: "0.9rem",
+            },
+          }}
+        />
+      </Box>
+      <FormControl component="fieldset">
         <RadioGroup
           row
           aria-label="category"
@@ -105,8 +110,8 @@ const SideBar = () => {
           <FormControlLabel
             value="all"
             control={<Radio size="small" />}
-            label="All categories"
-            sx={{ fontSize: "0.9rem" }}
+            label="Все категории"
+            sx={{ fontSize: "0.9rem", mx: 1 }}
           />
           {categories.map((elem) => (
             <FormControlLabel
@@ -114,7 +119,7 @@ const SideBar = () => {
               value={elem.name}
               control={<Radio size="small" />}
               label={elem.name}
-              sx={{ fontSize: "0.9rem" }}
+              sx={{ fontSize: "0.9rem", mx: 1 }}
             />
           ))}
         </RadioGroup>

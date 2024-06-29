@@ -28,54 +28,92 @@ const AddProduct = () => {
       setProduct(obj);
     }
   };
+
   const handleClick = () => {
     createProduct(product);
+    // Очистка полей после добавления продукта (опционально)
+    setProduct({
+      title: "",
+      description: "",
+      price: 0,
+      image: "",
+      category: "",
+    });
   };
+
   return (
     <Box
       sx={{
         width: "50vw",
-        height: 500,
         margin: "20px auto",
+        padding: "20px",
+        backgroundColor: "rgba(255, 255, 255, 0.6)", // Легкий полупрозрачный фон
+        borderRadius: "10px",
+        boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.1)", // Тень для глубины
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
+        alignItems: "center",
+        transition: "all 0.3s ease-in-out", // Анимация для плавности изменений
+        "&:hover": {
+          transform: "scale(1.02)", // Масштабирование при наведении
+          boxShadow: "0px 0px 30px rgba(0, 0, 0, 0.2)", // Усиленная тень при наведении
+        },
       }}
     >
-      <Typography variant="h4" align="center">
-        ADMIN PAGE
+      <Typography variant="h4" align="center" gutterBottom>
+        СТРАНИЦА АДМИНИСТРАТОРА
       </Typography>
       <TextField
         name="title"
+        value={product.title}
         fullWidth
-        label="Title"
+        label="Название"
         variant="outlined"
         onChange={handleInput}
+        style={{ marginBottom: "15px" }}
       />
       <TextField
         name="description"
+        value={product.description}
         fullWidth
-        label="Description"
+        label="Описание"
         variant="outlined"
         onChange={handleInput}
+        style={{ marginBottom: "15px" }}
       />
       <TextField
         name="image"
+        value={product.image}
         fullWidth
-        label="Image"
+        label="URL изображения"
         variant="outlined"
         onChange={handleInput}
+        style={{ marginBottom: "15px" }}
       />
       <TextField
         name="price"
+        value={product.price}
         fullWidth
-        label="Price"
+        label="Цена"
+        type="number"
         variant="outlined"
         onChange={handleInput}
+        style={{ marginBottom: "15px" }}
       />
       <CategorySelect handleInput={handleInput} />
-      <Button onClick={handleClick} fullWidth variant="contained">
-        Add Product
+      <Button
+        onClick={handleClick}
+        fullWidth
+        variant="contained"
+        color="primary"
+        style={{
+          marginTop: "20px",
+          borderRadius: "20px",
+          padding: "12px 0",
+          fontWeight: "bold",
+        }}
+      >
+        Добавить
       </Button>
     </Box>
   );

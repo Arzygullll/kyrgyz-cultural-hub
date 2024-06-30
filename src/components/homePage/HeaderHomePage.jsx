@@ -23,8 +23,7 @@ const HeaderHomePage = () => {
         <div className="overlay"></div>
         <video className="background-video" src={videoBg} autoPlay loop muted />
         <div className="content">
-          <h1>Welcome</h1>
-          <p>To my site.</p>
+          <h1>Кыргызстан</h1>
         </div>
       </div>
 
@@ -41,8 +40,7 @@ const HeaderHomePage = () => {
                   alt="Ущелье Алтын-Арашан"
                 />
                 <div class="tour-details">
-                  <a href="#">Ущелье Алтын-Арашан</a>
-                  <span>Читать далее</span>
+                  <a href="">Ущелье Алтын-Арашан</a>
                 </div>
               </div>
             </li>
@@ -50,8 +48,7 @@ const HeaderHomePage = () => {
               <div class="tour-item">
                 <img src={require("../homePage/assets/son-kul.jpg")} />
                 <div class="tour-details">
-                  <a href="#">Озеро Сон-Куль</a>
-                  <span>Читать далее</span>
+                  <a href="">Озеро Сон-Куль</a>
                 </div>
               </div>
             </li>
@@ -62,8 +59,7 @@ const HeaderHomePage = () => {
                   alt="Озеро Кель Суу"
                 />
                 <div class="tour-details">
-                  <a href="#">Озеро Кель Суу</a>
-                  <span>Читать далее</span>
+                  <a href="">Озеро Кель Суу</a>
                 </div>
               </div>
             </li>
@@ -74,8 +70,7 @@ const HeaderHomePage = () => {
                   alt="Озеро Ала-Куль"
                 />
                 <div class="tour-details">
-                  <a href="#">Озеро Ала-Куль</a>
-                  <span>Читать далее</span>
+                  <a href="">Озеро Ала-Куль</a>
                 </div>
               </div>
             </li>
@@ -86,8 +81,7 @@ const HeaderHomePage = () => {
                   alt="Ущелье Ала-Арча"
                 />
                 <div class="tour-details">
-                  <a href="#">Ущелье Ала-Арча</a>
-                  <span>Читать далее</span>
+                  <a href="">Ущелье Ала-Арча</a>
                 </div>
               </div>
             </li>
@@ -98,8 +92,7 @@ const HeaderHomePage = () => {
                   alt="Ущелье Джеты-Огуз"
                 />
                 <div class="tour-details">
-                  <a href="#">Ущелье Джеты-Огуз</a>
-                  <span>Читать далее</span>
+                  <a href="">Ущелье Джеты-Огуз</a>
                 </div>
               </div>
             </li>
@@ -110,8 +103,7 @@ const HeaderHomePage = () => {
                   alt="Караван-сарай Таш-Рабат"
                 />
                 <div class="tour-details">
-                  <a href="#">Караван-сарай Таш-Рабат</a>
-                  <span>Читать далее</span>
+                  <a href="">Караван-сарай Таш-Рабат</a>
                 </div>
               </div>
             </li>
@@ -122,8 +114,7 @@ const HeaderHomePage = () => {
                   alt="Башня Бурана"
                 />
                 <div class="tour-details">
-                  <a href="#">Башня Бурана</a>
-                  <span>Читать далее</span>
+                  <a href="">Башня Бурана</a>
                 </div>
               </div>
             </li>
@@ -134,9 +125,14 @@ const HeaderHomePage = () => {
       {/* Секция highlight-tag */}
       <section className="highlight-tag">
         <div className="highlight-content">
-          <h2>Заголовок раздела</h2>
-          <p>Описание раздела или другая информация.</p>
-          <a href="#" className="highlight-link">
+          <h2>Исследуйте наши этноколлекции</h2>
+          <p>
+            Погрузитесь в мир уникальных этноколлекций, где каждый предмет
+            рассказывает свою историю. Откройте для себя богатство традиций и
+            ремесел Кыргызстана в наших коллекциях украшений, сумок и многого
+            другого.
+          </p>
+          <a href="/etnocollection" className="highlight-link">
             Подробнее
           </a>
         </div>

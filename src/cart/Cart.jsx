@@ -54,7 +54,7 @@ const Cart = () => {
                 </TableCell>
                 <TableCell>{elem.item.title}</TableCell>
                 <TableCell>{elem.item.category}</TableCell>
-                <TableCell>{elem.item.price} сом</TableCell>
+                <TableCell>{elem.item.price}$</TableCell>
                 <TableCell>
                   <input
                     type="number"
@@ -73,7 +73,7 @@ const Cart = () => {
                     }}
                   />
                 </TableCell>
-                <TableCell>{elem.subPrice} сом</TableCell>
+                <TableCell>{elem.subPrice} $</TableCell>
                 <TableCell>
                   <Button
                     onClick={() => deleteProductFromCart(elem.item.id)}
@@ -95,7 +95,7 @@ const Cart = () => {
         size="large"
         style={{ marginTop: "20px" }}
       >
-        Купить сейчас за {cart.totalPrice} сом
+        Купить сейчас за {cart.totalPrice} $
       </Button>
     </div>
   );

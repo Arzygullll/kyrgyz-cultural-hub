@@ -91,7 +91,7 @@ const TourCard = ({ elem }) => {
             {elem.description}
           </Typography> */}
           <Typography variant="h6" color="primary">
-            {elem.price} kgs
+            {elem.price} $
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -103,31 +103,25 @@ const TourCard = ({ elem }) => {
       >
         <IconButton
           sx={{
-            color: checkProductInCart(elem.id) ? "primary.main" : "inherit",
+            color: checkProductInCart(elem.id) ? "red" : "inherit",
           }}
           onClick={() => addProductToCart(elem)}
         >
           <Favorite />
         </IconButton>
-        <Stack direction="row" spacing={1}>
+        <Stack direction="row">
           <Button
             startIcon={<Delete />}
             color="secondary"
-            variant="outlined"
             size="small"
             onClick={handleDelete}
-          >
-            Удалить
-          </Button>
+          ></Button>
           <Button
             startIcon={<Edit />}
             onClick={() => navigate(`/edit/${elem.id}`)}
-            variant="outlined"
             color="primary"
             size="small"
-          >
-            Редактировать
-          </Button>
+          ></Button>
         </Stack>
       </Stack>
       <Detail elem={elem} open={open} handleClose={handleClose} />

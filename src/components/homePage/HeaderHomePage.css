@@ -150,19 +150,23 @@
 .highlight-content h2 {
   font-size: 2.5em;
   margin-bottom: 20px;
-  color: #333;
+  color: #ffffff; /* Белый цвет текста */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.8);
 }
 
 .highlight-content p {
   font-size: 1.5em;
-  color: #666;
+  color: #ffffff; /* Белый цвет текста */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.8);
   margin-bottom: 30px;
 }
 
 .highlight-content .highlight-link {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #ff5722;
+  background-color: #c24c28;
   color: white;
   text-decoration: none;
   border-radius: 4px;
@@ -180,6 +184,7 @@
   padding: 80px 20px;
   text-align: center;
   overflow: hidden;
+  background-attachment: fixed;
 }
 
 .highlight-content {

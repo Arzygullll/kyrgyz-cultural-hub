@@ -13,7 +13,8 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { useCart } from "../../context/CartContextProvider";
 import { getProductsCountInCart } from "../../helpers/functions";
-import { ShoppingCart } from "@mui/icons-material";
+// import { ShoppingCart } from "@mui/icons-material";
+import ModeOfTravelIcon from "@mui/icons-material/ModeOfTravel";
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -108,7 +109,7 @@ const Navbar = () => {
           </Nav>
           <Link to={"/cart"}>
             <Badge badgeContent={badgeCount} color="success">
-              <ShoppingCart sx={{ color: "white", marginBottom: "10px" }} />
+              <ModeOfTravelIcon sx={{ color: "white", marginBottom: "10px" }} />
             </Badge>
           </Link>
           <Form className="d-flex mb-3">

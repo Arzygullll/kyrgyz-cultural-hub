@@ -6,6 +6,8 @@ import EditTour from "../components/products/EditTour";
 import AdminPage from "../pages/AdminPage";
 import CartPage from "../pages/CartPage";
 import EtnoCollectionPage from "../pages/EtnoCollectionPage";
+import AuthPage from "../pages/AuthPage";
+import KnowledgePage from "../pages/KnowledgePage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -15,6 +17,8 @@ const MainRoutes = () => {
     { id: 4, link: "/admin", element: <AdminPage /> },
     { id: 5, link: "/cart", element: <CartPage /> },
     { id: 5, link: "/etnocollection", element: <EtnoCollectionPage /> },
+    { id: 6, link: "/auth", element: <AuthPage /> },
+    { id: 7, link: "/knowledge", element: <KnowledgePage /> },
   ];
   return (
     <Routes>

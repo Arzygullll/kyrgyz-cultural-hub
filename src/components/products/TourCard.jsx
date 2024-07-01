@@ -14,6 +14,8 @@ import {
 } from "@mui/material";
 import { Favorite, Delete, Edit } from "@mui/icons-material";
 import Detail from "./Detail";
+import { ADMIN } from "../../helpers/const";
+import { useAuth } from "../../context/AuthContextProvider";
 
 const TourCard = ({ elem }) => {
   const { addProductToCart, checkProductInCart, deleteProductFromCart } =
@@ -27,6 +29,7 @@ const TourCard = ({ elem }) => {
     deleteProduct(elem.id);
     deleteProductFromCart(elem.id);
   };
+  const { user } = useAuth();
 
   return (
     <Card
@@ -110,18 +113,31 @@ const TourCard = ({ elem }) => {
           <Favorite />
         </IconButton>
         <Stack direction="row">
-          <Button
-            startIcon={<Delete />}
-            color="secondary"
-            size="small"
-            onClick={handleDelete}
-          ></Button>
-          <Button
-            startIcon={<Edit />}
-            onClick={() => navigate(`/edit/${elem.id}`)}
-            color="primary"
-            size="small"
-          ></Button>
+          {user.email === ADMIN ? (
+            <>
+              <Button
+                startIcon={<Delete />}
+                color="secondary"
+                size="small"
+                onClick={handleDelete}
+              ></Button>
+              <Button
+                startIcon={<Edit />}
+                onClick={() => navigate(`/edit/${elem.id}`)}
+                color="primary"
+                size="small"
+              ></Button>
+            </>
+          ) : (
+            <IconButton
+              sx={{
+                color: checkProductInCart(elem.id) ? "red" : "inherit",
+              }}
+              onClick={() => addProductToCart(elem)}
+            >
+              <Favorite />
+            </IconButton>
+          )}
         </Stack>
       </Stack>
       <Detail elem={elem} open={open} handleClose={handleClose} />

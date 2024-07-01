@@ -115,7 +115,7 @@ const Detail = ({ elem, open, handleClose }) => {
                 backgroundColor: "#ccc",
               }}
             >
-              Уже в корзине
+              Уже забронирован
             </Button>
           ) : (
             <Button

@@ -3,47 +3,93 @@ import { useSearchParams } from "react-router-dom";
 import { useProduct } from "../../context/TourContextProvider";
 import TourCard from "./TourCard";
 import { Box } from "@mui/material";
-import PagintaionControlled from "./PaginationControlled";
+import PaginationControlled from "./PaginationControlled";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
 const TourList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const { getProducts, products } = useProduct();
+  const [page, setPage] = useState(1);
+
   useEffect(() => {
     getProducts();
     setPage(1);
   }, [searchParams]);
-  const { getProducts, products } = useProduct();
-  // текущая страница
-  const [page, setPage] = useState(1);
-  useEffect(() => {
-    getProducts();
-  }, []);
-  console.log(products);
-  // кол-во продуктов на одной странице
-  const itemPerPage = 6;
-  // общее кол-во страниц
+
+  const itemPerPage = 3;
   const count = Math.ceil(products.length / itemPerPage);
-  console.log(products);
+
   const currentData = () => {
     const beginIndex = (page - 1) * itemPerPage;
-    const endIndex = beginIndex + itemPerPage;
-    return products.slice(beginIndex, endIndex);
+    return products.slice(beginIndex, beginIndex + itemPerPage);
   };
+
   const handleChange = (e, value) => {
     setPage(value);
   };
+
+  const handlePrev = () => {
+    handleChange(null, page - 1);
+  };
+
+  const handleNext = () => {
+    handleChange(null, page + 1);
+  };
+
   return (
-    <div>
-      <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+    <Box sx={{ mt: 1 }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: 2,
+        }}
+      >
+        <NavigateBeforeIcon
+          onClick={handlePrev}
+          disabled={page === 1}
+          color="white"
+          style={{
+            cursor: "pointer",
+            marginLeft: "5px",
+            marginTop: "200px",
+            width: "50px",
+            height: "50px",
+          }}
+        />
         {currentData().map((elem) => (
           <TourCard key={elem.id} elem={elem} />
         ))}
+        <NavigateNextIcon
+          onClick={handleNext}
+          disabled={page === count}
+          color="white"
+          style={{
+            cursor: "pointer",
+            marginLeft: "5px",
+            marginTop: "200px",
+            width: "50px",
+            height: "50px",
+          }}
+        />
       </Box>
-      <PagintaionControlled
-        page={page}
-        count={count}
-        handleChange={handleChange}
-      />
-    </div>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          mb: 1,
+        }}
+      >
+        <PaginationControlled
+          page={page}
+          count={count}
+          handleChange={handleChange}
+        />
+      </Box>
+    </Box>
   );
 };
 

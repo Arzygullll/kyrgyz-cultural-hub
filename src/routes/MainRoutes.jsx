@@ -5,7 +5,13 @@ import PlacesPage from "../pages/PlacesPage";
 import EditTour from "../components/products/EditTour";
 import AdminPage from "../pages/AdminPage";
 import CartPage from "../pages/CartPage";
+<<<<<<< HEAD
 import ContactPage from "../pages/ContactPage";
+=======
+import EtnoCollectionPage from "../pages/EtnoCollectionPage";
+import AuthPage from "../pages/AuthPage";
+import KnowledgePage from "../pages/KnowledgePage";
+>>>>>>> 83b8d411469f86dbe1e185ffd9fc7392f2a8a28d
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -14,7 +20,13 @@ const MainRoutes = () => {
     { id: 3, link: "/edit/:id", element: <EditTour /> },
     { id: 4, link: "/admin", element: <AdminPage /> },
     { id: 5, link: "/cart", element: <CartPage /> },
+<<<<<<< HEAD
     { id: 6, link: "/contact", element: <ContactPage /> },
+=======
+    { id: 5, link: "/etnocollection", element: <EtnoCollectionPage /> },
+    { id: 6, link: "/auth", element: <AuthPage /> },
+    { id: 7, link: "/knowledge", element: <KnowledgePage /> },
+>>>>>>> 83b8d411469f86dbe1e185ffd9fc7392f2a8a28d
   ];
   return (
     <Routes>

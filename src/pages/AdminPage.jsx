@@ -1,51 +1,50 @@
-// AdminPage.jsx
 import React, { useState } from "react";
-import { Button, Container, Grid, Paper, Typography, Box } from "@mui/material";
 import AddCategory from "../components/products/AddCategory";
+import { Button } from "@mui/material";
 import AddTour from "../components/products/AddTour";
 
 const AdminPage = () => {
   const [open, setOpen] = useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
-    <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-      <Box sx={{ textAlign: "center", mb: 4, marginTop: "80px" }}>
-        <Typography variant="h3" gutterBottom sx={{ color: "#1976d2" }}>
-          СТРАНИЦА АДМИНИСТРАТОРА
-        </Typography>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleOpen}
-          sx={{ mt: 2 }}
-        >
-          Добавить категорию
-        </Button>
-      </Box>
-      <Grid container spacing={4} justifyContent="center">
-        <Grid item xs={12} md={6}>
-          <Paper
-            elevation={3}
-            sx={{
-              p: 3,
-              textAlign: "center",
-              backgroundColor: "#fafafa",
-              borderRadius: "10px",
-              paddingRight: "30px",
-            }}
-          >
-            <AddTour />
-          </Paper>
-        </Grid>
-      </Grid>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        background:
+          "radial-gradient(circle, rgba(63, 95, 140, 1) 0%, rgba(47, 47, 172, 1) 43%, rgba(47, 140, 172, 1) 100%)", // Radial gradient background
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        padding: "17px",
+        boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)", // Box shadow for depth
+      }}
+    >
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleOpen}
+        style={{
+          marginTop: "50px",
+          marginBottom: "20px",
+          background:
+            "radial-gradient(circle, rgba(63, 95, 140, 1) 0%, rgba(47, 47, 172, 1) 43%, rgba(47, 140, 172, 1) 100%)", // Radial gradient background
+          borderRadius: "20px",
+          padding: "10px 20px",
+          boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+          color: "white",
+          fontWeight: "bold",
+          fontSize: "1rem",
+        }}
+      >
+        Добавить категорию
+      </Button>
+      <AddTour style={{ marginBottom: "20px", width: "100%" }} />
       <AddCategory open={open} handleClose={handleClose} />
-    </Container>
+    </div>
   );
 };
 

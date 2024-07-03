@@ -23,8 +23,7 @@ const HeaderHomePage = () => {
         <div className="overlay"></div>
         <video className="background-video" src={videoBg} autoPlay loop muted />
         <div className="content">
-          <h1>Welcome</h1>
-          <p>To my site.</p>
+          <h1>Кыргызстан</h1>
         </div>
       </div>
 
@@ -41,8 +40,7 @@ const HeaderHomePage = () => {
                   alt="Ущелье Алтын-Арашан"
                 />
                 <div class="tour-details">
-                  <a href="#">Ущелье Алтын-Арашан</a>
-                  <span>Читать далее</span>
+                  <a href="">Ущелье Алтын-Арашан</a>
                 </div>
               </div>
             </li>
@@ -50,8 +48,7 @@ const HeaderHomePage = () => {
               <div class="tour-item">
                 <img src={require("../homePage/assets/son-kul.jpg")} />
                 <div class="tour-details">
-                  <a href="#">Озеро Сон-Куль</a>
-                  <span>Читать далее</span>
+                  <a href="">Озеро Сон-Куль</a>
                 </div>
               </div>
             </li>
@@ -62,8 +59,7 @@ const HeaderHomePage = () => {
                   alt="Озеро Кель Суу"
                 />
                 <div class="tour-details">
-                  <a href="#">Озеро Кель Суу</a>
-                  <span>Читать далее</span>
+                  <a href="">Озеро Кель Суу</a>
                 </div>
               </div>
             </li>
@@ -74,8 +70,7 @@ const HeaderHomePage = () => {
                   alt="Озеро Ала-Куль"
                 />
                 <div class="tour-details">
-                  <a href="#">Озеро Ала-Куль</a>
-                  <span>Читать далее</span>
+                  <a href="">Озеро Ала-Куль</a>
                 </div>
               </div>
             </li>
@@ -86,8 +81,7 @@ const HeaderHomePage = () => {
                   alt="Ущелье Ала-Арча"
                 />
                 <div class="tour-details">
-                  <a href="#">Ущелье Ала-Арча</a>
-                  <span>Читать далее</span>
+                  <a href="">Ущелье Ала-Арча</a>
                 </div>
               </div>
             </li>
@@ -98,8 +92,7 @@ const HeaderHomePage = () => {
                   alt="Ущелье Джеты-Огуз"
                 />
                 <div class="tour-details">
-                  <a href="#">Ущелье Джеты-Огуз</a>
-                  <span>Читать далее</span>
+                  <a href="">Ущелье Джеты-Огуз</a>
                 </div>
               </div>
             </li>
@@ -110,8 +103,7 @@ const HeaderHomePage = () => {
                   alt="Караван-сарай Таш-Рабат"
                 />
                 <div class="tour-details">
-                  <a href="#">Караван-сарай Таш-Рабат</a>
-                  <span>Читать далее</span>
+                  <a href="">Караван-сарай Таш-Рабат</a>
                 </div>
               </div>
             </li>
@@ -122,8 +114,7 @@ const HeaderHomePage = () => {
                   alt="Башня Бурана"
                 />
                 <div class="tour-details">
-                  <a href="#">Башня Бурана</a>
-                  <span>Читать далее</span>
+                  <a href="">Башня Бурана</a>
                 </div>
               </div>
             </li>
@@ -134,18 +125,103 @@ const HeaderHomePage = () => {
       {/* Секция highlight-tag */}
       <section className="highlight-tag">
         <div className="highlight-content">
-          <h2>Заголовок раздела</h2>
-          <p>Описание раздела или другая информация.</p>
-          <a href="#" className="highlight-link">
+          <h2>Исследуйте наши этноколлекции</h2>
+          <p>
+            Погрузитесь в мир уникальных этноколлекций, где каждый предмет
+            рассказывает свою историю. Откройте для себя богатство традиций и
+            ремесел Кыргызстана в наших коллекциях украшений, сумок и многого
+            другого.
+          </p>
+          <a href="/etnocollection" className="highlight-link">
             Подробнее
           </a>
         </div>
       </section>
       {/*  */}
-      <section className="section4"></section>
-      <footer className="footer">
-        <Footer />
-      </footer>
+      <section className="section4">
+        <div className="bbb">
+          <div className="body">
+            {/* card start */}
+
+            <div class="card">
+              <div class="content">
+                <div class="front">
+                  <h2>Ала-Арча</h2>
+                  <p>
+                    Природный парк Ала-Арча расположен в 17 км от черты города,
+                    на высоте 4 860 м и занимает площадь более 17 087, 2 га.
+                  </p>
+                </div>
+                <div class="back">
+                  <p>
+                    Растительный мир парка необычайно богат: 600 видов растений
+                    и 70 разновидностей деревьев и кустарников,
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card1">
+              <div class="content1">
+                <div class="front1">
+                  <h2>Боо́мское уще́лье</h2>
+                  <p>
+                    Живописное Боомское ущелье расположено в среднем течении
+                    реки Чу на границе раздела хребтов Киргизского Ала-Тоо и
+                    Кунгей Ала-Тоо.
+                  </p>
+                </div>
+                <div class="back1">
+                  <p>
+                    Через Боомское ущелье проходит железнодорожная ветка (1948
+                    год, 180 км), соединяющая Бишкек и Балыкчи (в советское
+                    время Фрунзе и Рыбачье)
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card2">
+              <div class="content2">
+                <div class="front2">
+                  <h2>Ущелье Бир-Булак</h2>
+                  <p>
+                    Ущелье Бир-Булак (Малиновое) находится в 45 километрах от
+                    города.
+                  </p>
+                </div>
+                <div class="back2">
+                  <p>
+                    Дорога лежит через лечебно-оздоровительный курорт в селе
+                    Таш-Добо, к нему примыкает село Бир-Булак,
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card3">
+              <div class="content3">
+                <div class="front3">
+                  <h2>Шамши</h2>
+                  <p>
+                    Шамши – это одно из красивых ущелий Кыргызстана, склоны гор
+                    покрыты живописными арчовыми и еловыми лесами.
+                  </p>
+                </div>
+                <div class="back3">
+                  <p>
+                    Ущелье хранит и тайны прошлых эпох: здесь была найдена маска
+                    из чистого золота (4-5 вв), которая, по мнению старейшин
+                    села,
+                  </p>
+                </div>
+              </div>
+            </div>
+            {/* card finish */}
+          </div>
+        </div>
+      </section>
+      <footer className="footer"></footer>
     </div>
   );
 };

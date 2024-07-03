@@ -232,11 +232,12 @@
 }
 
 .body {
-  background-color: rgb(248, 244, 244);
+  background-color: rgb(128, 128, 128);
   color: white;
   display: flex;
   align-items: center;
   height: 600px;
+  flex-wrap: wrap;
 }
 
 /* Card */
@@ -270,7 +271,6 @@
 .card .front {
   transform-style: preserve-3d;
   backface-visibility: hidden;
-
   display: flex;
   flex-direction: column;
 }
@@ -315,13 +315,13 @@
   bottom: 0;
   position: absolute;
 
-  background: url(https://kartinki.pics/uploads/posts/2022-03/1646727141_1-kartinkin-net-p-krasivie-kartinki-gor-1.jpg);
+  background: url(https://lh6.googleusercontent.com/proxy/kwVvFTxxMkii448e7cSaTh9YURq3wJDQZmH0KS7VDTBKEcXpLif3ll3g7IfRhDrZMcGA_9XAZXuZvuLbyV-0S9asIrwtYtBK97MyfuSsR7A9YdllkrmRSHy4JbzqVkI8MW-pkwBR);
   transform: rotateY(0.5turn) translateZ(1px);
 }
 
 .card::before {
   transform: none;
-  background: url(https://moya-planeta.ru/upload/images/xl/95/fe/95fe44d0e5fe53e49d874f9c2e07381ca8ea823a.jpg);
+  background: url(https://www.gumilev-center.ru/wp-content/uploads/2011/02/manas.jpg);
 }
 
 /* Global styles */
@@ -411,13 +411,13 @@ a {
   bottom: 0;
   position: absolute;
 
-  background: url(https://st2.depositphotos.com/2435561/5250/i/450/depositphotos_52508447-stock-photo-sunset-from-cowee-mountains-overlook.jpg);
+  background: url(https://weproject.media/upload/resize_cache/iblock/f0d/400_450_240cd750bba9870f18aada2478b24840a/f0dec3aceb407770a5a55207cc33abb7.jpg);
   transform: rotateY(0.5turn) translateZ(1px);
 }
 
 .card1::before {
   transform: none;
-  background: url(https://mfa.gov.kg/uploads/content/9850/6bd2957c-e80a-3d4f-90bf-92e0dc8c9ae1.jpg);
+  background: url(https://the-steppe.com/wp-content/uploads/2023/03/1278a7be553b96af4d1f99874986eee3.png);
 }
 /* Card */
 .card2 {
@@ -492,13 +492,13 @@ a {
   right: 0;
   bottom: 0;
   position: absolute;
-  background: url(https://static.islam.kz/uploads/images/6gM/5vS/r8V9pqeF4Evp8Kfd-lg.jpg);
+  background: url(https://zira.uz/wp-content/uploads/2023/03/cf88a4ed-7bcd-44e5-8f74-d44179fecc61-1024x687.png);
   transform: rotateY(0.5turn) translateZ(1px);
 }
 
 .card2::before {
   transform: none;
-  background: url(https://i.pinimg.com/736x/83/d2/9c/83d29c0b05394528e5c8b5255760d927.jpg);
+  background: url(https://too.kg/wp-content/uploads/Natsionalnye-blyuda-KR.jpg);
 }
 
 /* Card */
@@ -573,11 +573,11 @@ a {
   right: 0;
   bottom: 0;
   position: absolute;
-  background: url(https://news.store.rambler.ru/img/aa5107344ffe5982aa0bf77eabd096ce?img-format=auto&img-1-resize=height:400,fit:max&img-2-filter=sharpen);
+  background: url(https://i.pinimg.com/736x/4d/44/7b/4d447be9a2fcb1d6b4375a91124d4fa0.jpg);
   transform: rotateY(0.5turn) translateZ(1px);
 }
 
 .card3::before {
   transform: none;
-  background: url(https://i1.wp.com/4sport.ua/_upl/2/1481/matt_1_zpsbm03zmqs_c.jpg);
+  background: url(https://i.pinimg.com/736x/6d/b1/29/6db1291866b5f0c2477aecd31f276657.jpg);
 }

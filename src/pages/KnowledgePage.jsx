@@ -1,193 +1,304 @@
-import React from "react";
+import React, { useEffect } from "react";
+import "./KnowledgePage.css";
 
 const KnowledgePage = () => {
+  useEffect(() => {
+    const sectionContents = document.querySelectorAll(".section-content");
+
+    const handleScroll = () => {
+      sectionContents.forEach((section, index) => {
+        const position = section.getBoundingClientRect().top;
+        const screenHeight = window.innerHeight;
+
+        if (position < screenHeight * 0.75) {
+          // показываем секцию при прокрутке на 75% её высоты
+          section.classList.add("visible");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div>
-      <div className="main">
-        <div className="section1">
-          <span>Меры безопасности при пеших походах</span>
+    <div className="page-container">
+      <h2
+        className="page-title"
+        style={{
+          backgroundImage: `url(${require("../components/homePage/assets/passport-kyrgyzstan-1.png")})`,
+        }}
+      >
+        Визовая политика Кыргызстана
+      </h2>
+      <div className="section-content">
+        <img
+          className="section-img"
+          src={require("../components/homePage/assets/Visa_policy_of_Kyrgyzstan-768x337.png")}
+          alt=""
+        />
+        <div className="section-text">
+          <strong>Безвизовый режим:</strong>
           <p>
-            {" "}
-            Пешеходный туризм востребован среди активных путешественников, что
-            связано с его доступностью и разнообразием. Но перед тем как
-            отправиться в поход, следует знать, что маршрут должен подбираться с
-            учётом физической подготовки, экипировки и знаний местности. Такие
-            меры безопасности, которые соблюдаются при пеших походах, помогут не
-            только сохранить здоровье, но и сделать путешествие увлекательным.{" "}
+            - Граждане более 60 стран, включая Россию, Казахстан, Турцию, Грузию
+            и большинство стран СНГ, могут посещать Кыргызстан без визы на срок
+            до 60 дней. - Граждане некоторых стран, таких как США, Канада,
+            Австралия, Япония и большинство стран Европейского Союза, могут
+            находиться в Кыргызстане без визы до 60 дней.
           </p>
-        </div>
-
-        <div className="section2">
-          <span>Главные условия перед прогулкой</span>
+          <strong>Электронная виза:</strong>
           <p>
-            {" "}
-            Повышенным спросом среди активистов пользуется горная местность, так
-            как здесь присутствует своеобразный рельеф, завораживающие пейзажи и
-            непредсказуемость, к которой нужно быть готовым в любой момент. Но
-            поэтому вы должны знать меры безопасности, учитываемые при пеших
-            походах группы в горах:{" "}
+            - Граждане стран, которые не включены в список безвизового режима,
+            могут подать заявку на электронную визу (e-visa) через официальный
+            сайт правительства Кыргызстана. E-visa выдаётся на срок до 90 дней с
+            однократным или двукратным въездом.
           </p>
-          <ul>
-            <li>
-              отправляться в горы следует только группой для оказания
-              взаимопомощи;
-            </li>
-            <li>у туристического состава должен быть руководитель;</li>
-            <li>
-              запрещается проводить спуск и поднятие по желобам и склонам;
-            </li>
-            <li>нельзя отправляться в поход в ненастную погоду;</li>
-            <li>предпочтение отдаётся комфортной обуви и одежде;</li>
-            <li>
-              необходимо стараться обходить участки с острыми скалами и
-              обрывами.
-            </li>
-          </ul>
+          <strong>Виза по прибытии:</strong>
           <p>
-            {" "}
-            Перед отправлением в путь также рекомендуется проинформировать
-            знакомых о схеме маршрута и ориентировочном времени прибытия в пункт
-            назначения. Не стоит забывать о погодных условиях данного района.
-            Главные меры безопасности пеших прогулок и горных походов
-            заключаются в обязательной подготовке каждого туриста. Вы должны
-            прокладывать безопасные маршруты, используя для этого карту
-            местности.{" "}
+            - В настоящее время Кыргызстан не предлагает визу по прибытии,
+            поэтому путешественникам, которым требуется виза, необходимо
+            получить её до поездки.
           </p>
-        </div>
-
-        <div className="section3">
-          <span>Что должно быть в рюкзаке туриста?</span>
+          <strong>Продление визы:</strong>
           <p>
-            {" "}
-            рюкзак для походаКогда вы отправляетесь в незнакомую местность, при
-            себе необходимо иметь:{" "}
+            - Безвизовое пребывание можно продлить на срок до 60 дней, подав
+            заявление в миграционную службу Кыргызстана.
           </p>
-          <div className="df">
-            <ol>
-              <li>фонарик</li>
-              <li>карту</li>
-              <li>компас</li>
-              <li>мобильный телефон;</li>
-              <li>шапку и перчатки;</li>
-              <li>тёплую одежду;</li>
-              <li>светоотражающий жилет.</li>
-            </ol>
-            <img
-              src="https://systema.kg/254933-medium_default/ryukzak-hp-1fk05aa-classic-3962-sm-156-vodostojkij-new.jpg"
-              alt=""
-            />
-          </div>
+          <strong>Рабочие и студенческие визы:</strong>
           <p>
-            {" "}
-            Соблюдайте основные правила безопасности группы в пеших походах:
-            обращайте внимание на информационные знаки, придерживайтесь
-            составленного маршрута, оставляйте пометки на пройденном пути.{" "}
-          </p>
-        </div>
-        <div className="section4">
-          <span>Как путешествовать зимой?</span>
-          <p>
-            {" "}
-            В зимнее время главнее всего не допустить переохлаждения. Поэтому
-            одежда должна быть водо- и ветронепроницаемой. При оформлении
-            ночлега на землю укладывается теплоизоляционный материал. Также не
-            допускайте жажды, которая способствует замерзанию. При недостатке
-            воды можно есть снег. Глаза должны быть защищены специальными очками
-            от ярких солнечных лучей.{" "}
-          </p>
-        </div>
-        <div className="section5">
-          <span>Летние путешествия</span>
-          <p>
-            {" "}
-            Важные правила безопасности летом в пеших походах заключаются в
-            правильном подборе одежды, которая должна защищать от перегрева и
-            сильных ветров, присущих горным массивам. Необходимо часто пить,
-            чтобы поддерживать силы, так как ветер, солнце и физические нагрузки
-            приводят к обезвоживанию. На местности с ареалом проживания диких
-            зверей следует вести себя внимательно. И помните, что безопасность
-            пеших походов будет зависеть только от качества подготовки к
-            путешествию: составления плана, подбора экипировки, комплектации
-            туристического рюкзака.
+            - Для долгосрочного пребывания, работы или учёбы необходимо получить
+            соответствующую визу в посольстве или консульстве Кыргызстана.
           </p>
         </div>
       </div>
-
-      <div className="body2">
-        <footer>
-          <div class="footer-content">
-            <div class="about">
-              <h3 style={{ marginLeft: "60px" }}>Kyrgyz Cultural Hub</h3>
-              <p
-                style={{
-                  fontSize: "15px",
-                  color: "white",
-                  width: "500px",
-                  height: "200px",
-                }}
-              >
-                Наша туристическая компания была основана в 2024 году в
-                Кыргызстане. Идея создания бренда принадлежит трём
-                друзьм-единомышленникам Амирхан, Айгерим и Арзыгул. На момент
-                стартапа у друзей был студенческий опыт в международном туризме,
-                отличное знание иностранных языков, глубокое понимание
-                европейского менталитета и неиссякаемый энтузиазм. Вдохновленные
-                красотами родного края, они активно продвигали путешествия по
-                Кыргызстану среди своих иностранных друзей и знакомых. Среди их
-                туров были конные, пешие, культурные; и в каждом туре они
-                старались учесть пожелания каждого гостя. Сегодня мы также
-                стремимся показать самые необычные туристические маршруты и
-                объекты, которые помогут лучше узнать нашу страну, ее
-                культурно-историческое наследие, познакомить с её гостеприимными
-                жителями.{" "}
-              </p>
-            </div>
-
-            <div className="socialNetworks">
-              <h3>our social networks</h3>
-              <a href="https://www.google.com/search?client=ubuntu-sn&channel=fs&q=instagram">
-                {" "}
-                <img
-                  src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_instagram-64.png"
-                  alt=""
-                />
-              </a>
-
-              <a href="https://www.google.com/search?q=facebook&client=ubuntu-sn&hs=PPw&sca_esv=72d33d3480545cc7&sca_upv=1&channel=fs&sxsrf=ADLYWIKrpql7p6xarzIYdgD3zuENS1TPDQ%3A1719743694695&ei=zjSBZtmZKobCwPAP2-yS4Ak&oq=fa&gs_lp=Egxnd3Mtd2l6LXNlcnAiAmZhKgIIADIKECMYgAQYJxiKBTIWEC4YgAQYsQMY0QMYQxiDARjHARiKBTINEC4YgAQYsQMYQxiKBTIKEAAYgAQYQxiKBTIKEAAYgAQYQxiKBTIKEAAYgAQYQxiKBTIOEC4YgAQYsQMY0QMYxwEyERAuGIAEGLEDGNEDGIMBGMcBMgUQABiABDIKEAAYgAQYFBiHAkj9I1CcEFi7EXACeAGQAQCYAX6gAfQBqgEDMC4yuAEByAEA-AEBmAIFoAKKE6gCFMICBxAjGCcY6gLCAhkQLhiABBjRAxhDGLQCGMcBGIoFGOoC2AEBwgITEAAYgAQYQxi0AhiKBRjqAtgBAcICCBAuGIAEGLEDwgILEAAYgAQYsQMYgwHCAiUQLhiABBixAxjRAxhDGIMBGMcBGIoFGJcFGNwEGN4EGOAE2AECmAMpugYGCAEQARgBugYGCAIQARgUkgcHMi4yLjgtMaAHih0&sclient=gws-wiz-serp">
-                {" "}
-                <img
-                  src="https://cdn1.iconfinder.com/data/icons/social-networks-15/512/facebook_social_network_logo-64.png"
-                  alt=""
-                />
-              </a>
-
-              <a href="https://www.google.com/search?q=tik+tok&client=ubuntu-sn&hs=iPw&sca_esv=72d33d3480545cc7&sca_upv=1&channel=fs&sxsrf=ADLYWIKVb3XLd546wcez_bsNGyFaFw3o2Q%3A1719743713184&ei=4TSBZqL3Csv8wPAPxfqn8Aw&ved=0ahUKEwji64PJkIOHAxVLPhAIHUX9Cc4Q4dUDCBA&uact=5&oq=tik+tok&gs_lp=Egxnd3Mtd2l6LXNlcnAiB3RpayB0b2syDRAAGIAEGLEDGEMYigUyBRAAGIAEMgoQABiABBhDGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMgoQABiABBhDGIoFMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABEjuG1CCDFinGHACeAGQAQCYAYECoAG9CaoBBTAuNC4zuAEDyAEA-AEBmAIJoALDCqgCFMICBxAjGCcY6gLCAhkQLhiABBjRAxhDGLQCGMcBGIoFGOoC2AEBwgITEAAYgAQYQxi0AhiKBRjqAtgBAcICChAjGIAEGCcYigXCAgwQIxiABBgTGCcYigXCAgsQABiABBixAxiDAcICCBAAGIAEGLEDwgIWEC4YgAQYsQMY0QMYQxiDARjHARiKBcICEBAuGIAEGNEDGEMYxwEYigXCAgsQABiABBixAxiKBZgDJ7oGBggBEAEYAZIHBTIuNC4zoAftLQ&sclient=gws-wiz-serp">
-                {" "}
-                <img
-                  src="https://cdn3.iconfinder.com/data/icons/social-media-2504/24/tik_tok-64.png"
-                  alt=""
-                />
-              </a>
-            </div>
-            <div class="contact">
-              <h3>Contact Us</h3>
-              <p style={{ paddingTop: "20px" }}>Phone: +996 770 000 000 </p>
-              <p style={{ paddingTop: "20px" }}>
-                Email: info@KyrgyzCulturalHub.com
-              </p>
-              <p style={{ paddingTop: "20px" }}>Kyrgysztan</p>
-              <p style={{ paddingTop: "20px" }}>Bishkek</p>
-              <p style={{ paddingTop: "20px" }}>ST: Manas</p>
-            </div>
-          </div>
-
-          <div class="copyright">
-            <p style={{ color: "white" }}>
-              {" "}
-              &copy; 2023 Kyrgyz Cultural Hub. All rights reserved.
-            </p>
-          </div>
-        </footer>
+      <h2
+        className="page-title"
+        style={{
+          backgroundImage: `url(${require("../components/homePage/assets/mobile-connection.jpg")})`,
+        }}
+      >
+        Сотовая связь
+      </h2>
+      <div className="section-content">
+        <div className="section-text">
+          <strong>
+            В Кыргызстане мобильная связь представлена несколькими основными
+            операторами: Beeline, MegaCom и О!. Эти компании предоставляют
+            услуги мобильной связи и интернета на всей территории страны.
+            Основные операторы:
+          </strong>
+          <p>
+            <strong>Beeline:</strong> Один из крупнейших операторов. Предлагает
+            разнообразные тарифные планы для звонков и интернета. Широкое
+            покрытие сети, включая отдаленные регионы.
+          </p>
+          <p>
+            <strong>MegaCom:</strong> Крупнейший оператор мобильной связи в
+            стране. Широкий выбор тарифных планов, включая выгодные пакеты для
+            интернета. Надежное покрытие в городах и сельской местности.
+          </p>
+          <p>
+            <strong>О!:</strong> Третий по величине оператор в Кыргызстане.
+            Конкурентоспособные тарифы и пакеты услуг. Хорошее покрытие сети и
+            качество связи.
+          </p>
+          <p>
+            <strong>Особенности:</strong> Мобильные операторы предлагают услуги
+            как предоплатные, так и постоплатные. Интернет 4G доступен в
+            большинстве крупных городов и регионов. Иностранные туристы могут
+            легко приобрести SIM-карты при наличии паспорта. В большинстве
+            населенных пунктов есть магазины и сервисные центры операторов.
+          </p>
+          <p>
+            <strong>Роуминг и международные звонки:</strong> Мобильные операторы
+            предлагают выгодные тарифы для международных звонков и роуминга.
+            Роуминг доступен в большинстве стран мира, но рекомендуется уточнять
+            тарифы перед поездкой.
+          </p>
+          <p>
+            Мобильная связь в Кыргызстане развита и предоставляет качественные
+            услуги, что делает её удобной для местных жителей и туристов.
+          </p>
+        </div>
+        <img
+          className="section-img"
+          src={require("../components/homePage/assets/megacom_karta_pokrytiya_seti-1024x496.jpg")}
+          alt=""
+        />
+      </div>
+      <h2
+        className="page-title"
+        style={{
+          backgroundImage: `url(${require("../components/homePage/assets/safety1.jpg")})`,
+        }}
+      >
+        Поведение и безопасность
+      </h2>
+      <div className="section-content">
+        <img
+          className="section-img"
+          src={require("../components/homePage/assets/safety3.jpeg")}
+          alt=""
+        />
+        <div className="section-text">
+          <strong>
+            Общая информация Кыргызстан – безопасная и дружелюбная к туристам
+            страна. Однако для комфортного пребывания необходимо соблюдать
+            некоторые правила.
+          </strong>
+          <strong>Экстренные службы:</strong>
+          <p>
+            <strong>Номер 112:</strong> Единый номер для вызова всех экстренных
+            служб (пожарная охрана, милиция, скорая помощь, аварийные службы).
+          </p>
+          <strong>Безопасность на дороге: </strong>
+          <p>
+            <strong>Вождение:</strong> Водители часто нарушают правила дорожного
+            движения, будьте внимательны как пешеход, велосипедист или водитель.
+          </p>
+          <p>
+            <strong>Советы для велосипедистов:</strong> Двигайтесь ближе к
+            обочине и спешивайтесь на перекрестках.
+          </p>
+          <strong>Карманные кражи и мошенничество:</strong>
+          <p>
+            <strong>Предосторожности: </strong>Держите ценные вещи при себе в
+            общественных местах (транспорт, базары).
+          </p>
+          <p>
+            <strong> Обмен валюты:</strong> Используйте банки для обмена валюты,
+            избегайте частных пунктов обмена.
+          </p>
+          <strong>Прогулки ночью:</strong>
+          <p>
+            <strong>Советы:</strong>Избегайте плохо освещенных мест и пьяных
+            компаний в ночное время.
+          </p>
+          <strong>Заказ такси Рекомендации:</strong>
+          <p>
+            Используйте официальные службы такси вместо частных водителей на
+            улице.
+          </p>
+          <strong>Алкоголь и наркотики:</strong>
+          <p>
+            <strong>Алкоголь:</strong>Запрещено находиться в состоянии опьянения
+            и употреблять алкоголь в общественных местах.{" "}
+            <strong>Наркотики:</strong> Хранение наркотических веществ является
+            уголовным преступлением.
+          </p>
+          <strong>Внешний вид:</strong>
+          <p>
+            <strong>Одежда:</strong>Одевайтесь скромно и уважительно, особенно в
+            традиционных и религиозных районах.
+          </p>
+          <strong>Запрещенные сувениры:</strong>
+          <p>
+            <strong> Культурные ценности:</strong> Не подлежат вывозу предметы,
+            представляющие историческую и культурную ценность, охраняемые
+            государством.
+          </p>
+          <p>
+            Следуя этим рекомендациям, вы сможете наслаждаться своим пребыванием
+            в Кыргызстане, сохраняя безопасность и уважение к местным традициям.
+          </p>
+        </div>
+      </div>
+      <h2
+        className="page-title"
+        style={{
+          backgroundImage: `url(${require("../components/homePage/assets/safetyinthemountaines.jpg")})`,
+        }}
+      >
+        Безопасность в горах
+      </h2>
+      <div className="section-content">
+        <div className="section-text">
+          <p>
+            Горы Кыргызстана прекрасны, но требуют соблюдения определенных
+            правил безопасности.
+          </p>
+          <strong>Общие правила</strong>
+          <p>
+            <strong>Планирование:</strong> Изучите маршрут, оцените его
+            сложность через Google Earth и топографические карты.{" "}
+          </p>
+          <p>
+            <strong>Оповещение:</strong> Сообщите родным или друзьям о вашем
+            маршруте и сроках.
+          </p>
+          <p>
+            <strong>Прогноз погоды: </strong> Узнайте прогноз и отложите поход
+            при неблагоприятных условиях.
+          </p>
+          <p>
+            <strong>Экипировка:</strong> Возьмите теплую и водонепроницаемую
+            одежду, фонарик, аптечку, еду и воду.
+          </p>
+          <strong>В пути</strong>
+          <p>
+            <strong>Силы и время:</strong> Рассчитывайте свои силы, не бойтесь
+            вернуться назад при усталости или плохой погоде.
+          </p>
+          <p>
+            <strong>Навигация:</strong> Используйте GPS, карты и компас. Знайте
+            свое местоположение.
+          </p>
+          <p>
+            <strong>Опасные участки: </strong>Избегайте лавиноопасных зон,
+            камнепадов и сложных бродов.
+          </p>
+          <p>
+            <strong> Костры:</strong> Разжигайте костры только при
+            необходимости.
+          </p>
+          <strong>Летние походы</strong>
+          <p>
+            <strong>Одежда:</strong> Возьмите теплую одежду на случай резкого
+            похолодания.
+          </p>
+          <p>
+            <strong>Защита от солнца:</strong> Используйте солнцезащитный крем и
+            очки.
+          </p>
+          <p>
+            <strong>Вода и пища:</strong> Пейте регулярно, воду из ручьев
+            кипятите. Возьмите минимальный запас еды.
+          </p>
+          <p>
+            <strong>Дикие животные и насекомые:</strong> Избегайте контакта с
+            животными, используйте средства от насекомых.
+          </p>
+          <strong>Зимние походы</strong>
+          <p>
+            <strong>Одежда:</strong> Надевайте влагонепроницаемую и
+            ветроустойчивую одежду, особое внимание уделите обуви.
+          </p>
+          <p>
+            <strong>Лавиноопасные зоны:</strong> Избегайте крутых склонов во
+            время и после снегопадов.
+          </p>
+          <strong>Ночевка в горах</strong>
+          <p>
+            <strong> Палатка:</strong> Устанавливайте палатку на ровных
+            площадках, вдали от крутых склонов и нор животных.
+          </p>
+          <p>
+            <strong>Юрты чабанов:</strong> Если возможно, размещайтесь
+            неподалеку от юрт пастухов для большей безопасности.
+          </p>
+          <p>
+            Соблюдая эти правила, вы сможете наслаждаться горами Кыргызстана,
+            минимизируя риски и оставаясь в безопасности.
+          </p>
+        </div>
+        <img
+          className="section-img"
+          src={require("../components/homePage/assets/imgsafetyinthemountaines.jpg")}
+          alt=""
+        />
       </div>
     </div>
   );

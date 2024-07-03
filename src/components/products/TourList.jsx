@@ -50,13 +50,13 @@ const TourList = () => {
         <NavigateBeforeIcon
           onClick={handlePrev}
           disabled={page === 1}
-          color="white"
           style={{
             cursor: "pointer",
             marginLeft: "5px",
             marginTop: "200px",
             width: "50px",
             height: "50px",
+            color: "white",
           }}
         />
         {currentData().map((elem) => (
@@ -65,13 +65,13 @@ const TourList = () => {
         <NavigateNextIcon
           onClick={handleNext}
           disabled={page === count}
-          color="white"
           style={{
             cursor: "pointer",
             marginLeft: "5px",
             marginTop: "200px",
             width: "50px",
             height: "50px",
+            color: "white",
           }}
         />
       </Box>

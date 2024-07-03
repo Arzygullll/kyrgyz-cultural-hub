@@ -8,6 +8,7 @@ import CartPage from "../pages/CartPage";
 import EtnoCollectionPage from "../pages/EtnoCollectionPage";
 import AuthPage from "../pages/AuthPage";
 import KnowledgePage from "../pages/KnowledgePage";
+import ContactPage from "../pages/ContactPage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -19,6 +20,7 @@ const MainRoutes = () => {
     { id: 5, link: "/etnocollection", element: <EtnoCollectionPage /> },
     { id: 6, link: "/auth", element: <AuthPage /> },
     { id: 7, link: "/knowledge", element: <KnowledgePage /> },
+    { id: 8, link: "/contact", element: <ContactPage /> },
   ];
   return (
     <Routes>

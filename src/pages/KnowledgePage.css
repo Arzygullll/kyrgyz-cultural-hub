@@ -1,0 +1,79 @@
+/* KnowledgePage.css */
+
+.page-container {
+  margin: 48px 0;
+  padding: 0 20px; /* Add padding to improve readability on smaller screens */
+}
+
+.page-title {
+  background-size: cover;
+  background-position: center;
+  min-height: 30vh;
+  text-align: center;
+  color: white;
+  font-size: 45px;
+  font-weight: 700;
+  padding-top: 80px;
+  margin-top: 48px;
+  position: relative;
+}
+
+.page-title::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.section-content {
+  display: flex;
+  flex-direction: column; /* Adjust for better stacking on smaller screens */
+  align-items: center; /* Center items */
+  margin: 24px 0;
+  opacity: 0;
+  transform: translateY(20px); /* начальное смещение вниз */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* добавляем переходы */
+}
+
+.section-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-text {
+  max-width: 100%; /* Adjust width for better responsiveness */
+  padding: 0 20px; /* Add padding for better readability */
+}
+
+.section-img {
+  max-width: 100%; /* Adjust width for better responsiveness */
+  height: auto;
+  border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+  .section-content {
+    flex-direction: row; /* Switch to row layout on larger screens */
+    justify-content: space-evenly;
+  }
+
+  .section-content:nth-child(odd) {
+    animation-delay: 0.5s;
+  }
+
+  .section-content:nth-child(even) {
+    animation-delay: 1s;
+  }
+
+  .section-text {
+    max-width: 45%; /* Reset max-width for text on larger screens */
+    padding: 0 10px; /* Adjust padding */
+  }
+
+  .section-img {
+    max-width: 45%; /* Reset max-width for images on larger screens */
+  }
+}

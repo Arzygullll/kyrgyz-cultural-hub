@@ -221,7 +221,9 @@ const HeaderHomePage = () => {
           </div>
         </div>
       </section>
-      <footer className="footer"></footer>
+      <footer className="footer">
+        <Footer />
+      </footer>
     </div>
   );
 };

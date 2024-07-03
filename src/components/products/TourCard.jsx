@@ -12,10 +12,11 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { Favorite, Delete, Edit } from "@mui/icons-material";
+import { Favorite, Delete, Edit, AddShoppingCart } from "@mui/icons-material";
 import Detail from "./Detail";
 import { ADMIN } from "../../helpers/const";
 import { useAuth } from "../../context/AuthContextProvider";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 const TourCard = ({ elem }) => {
   const { addProductToCart, checkProductInCart, deleteProductFromCart } =
@@ -104,17 +105,17 @@ const TourCard = ({ elem }) => {
         alignItems="center"
         p={2}
       >
-        <IconButton
-          sx={{
-            color: checkProductInCart(elem.id) ? "red" : "inherit",
-          }}
-          onClick={() => addProductToCart(elem)}
-        >
-          <Favorite />
-        </IconButton>
         <Stack direction="row">
           {user.email === ADMIN ? (
             <>
+              <AddShoppingCartIcon
+                sx={{
+                  color: checkProductInCart(elem.id) ? "red" : "inherit",
+                }}
+                onClick={() => addProductToCart(elem)}
+              >
+                <Favorite />
+              </AddShoppingCartIcon>
               <Button
                 startIcon={<Delete />}
                 color="secondary"
@@ -129,14 +130,14 @@ const TourCard = ({ elem }) => {
               ></Button>
             </>
           ) : (
-            <IconButton
+            <AddShoppingCartIcon
               sx={{
                 color: checkProductInCart(elem.id) ? "red" : "inherit",
               }}
               onClick={() => addProductToCart(elem)}
             >
               <Favorite />
-            </IconButton>
+            </AddShoppingCartIcon>
           )}
         </Stack>
       </Stack>

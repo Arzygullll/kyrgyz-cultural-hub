@@ -5,6 +5,7 @@ import PlacesPage from "../pages/PlacesPage";
 import EditTour from "../components/products/EditTour";
 import AdminPage from "../pages/AdminPage";
 import CartPage from "../pages/CartPage";
+import ContactPage from "../pages/ContactPage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -13,6 +14,7 @@ const MainRoutes = () => {
     { id: 3, link: "/edit/:id", element: <EditTour /> },
     { id: 4, link: "/admin", element: <AdminPage /> },
     { id: 5, link: "/cart", element: <CartPage /> },
+    { id: 6, link: "/contact", element: <ContactPage /> },
   ];
   return (
     <Routes>

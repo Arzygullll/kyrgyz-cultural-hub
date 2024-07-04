@@ -12,6 +12,7 @@ const Footer = () => {
           <img
             src={logo}
             alt="Kyrgyz Cultural Hub Logo"
+
             className="footer-logo"
           />
           <div className="x">x</div>
@@ -24,6 +25,7 @@ const Footer = () => {
           </p>
           <p className="footer-description">
             Kyrgyz Cultural Hub - это место, где культура и история Кыргызстана
+
             оживают. Присоединяйтесь к нам и узнайте больше о нашем богатом
             наследии.
           </p>
@@ -36,7 +38,9 @@ const Footer = () => {
             <strong>Телефон:</strong> +996 123 456 789
           </p>
           <p>
+
             <strong>Email:</strong> info@kyrgyzculturalhub.kg
+
           </p>
         </div>
         <div className="footer-social">

@@ -7,7 +7,7 @@ const ContactPage = () => {
       <div className={styles.content}>
         <h1 className={styles.title}>CONTACTS</h1>
         <div className={styles.contactInfo}>
-          <p>KyrgyzCultureHub@mail.kg</p>
+          <p>KyrgyzCulturalHub@mail.kg</p>
 
           <p>Телефоны и контакты по вопросам реализации и сотрудничество.</p>
         </div>

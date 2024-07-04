@@ -9,6 +9,7 @@ import EtnoCollectionPage from "../pages/EtnoCollectionPage";
 import AuthPage from "../pages/AuthPage";
 import KnowledgePage from "../pages/KnowledgePage";
 import ContactPage from "../pages/ContactPage";
+import FavoritePage from "../pages/FavoritePage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -21,6 +22,7 @@ const MainRoutes = () => {
     { id: 6, link: "/auth", element: <AuthPage /> },
     { id: 7, link: "/knowledge", element: <KnowledgePage /> },
     { id: 8, link: "/contact", element: <ContactPage /> },
+    { id: 9, link: "/isfavorite", element: <FavoritePage /> },
   ];
   return (
     <Routes>

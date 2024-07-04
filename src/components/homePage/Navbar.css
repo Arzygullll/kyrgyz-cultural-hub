@@ -143,48 +143,74 @@
   color: #dc3545;
 }
 
-@media (max-width: 576px) {
-  .modal-offcanvas {
-    width: 100%;
-    height: 100%;
+/*  */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 10px;
+  }
+
+  .navigation ul {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
   }
 }
-/* Adjustments for smaller screens */
-@media (max-width: 576px) {
+
+@media (max-width: 480px) {
+  .logo a {
+    font-size: 20px;
+  }
+
+  .navigation a {
+    font-size: 14px;
+  }
+
   .modal-offcanvas {
-    width: 100%; /* Cover entire screen width */
-    height: 100%; /* Cover entire screen height */
-    padding: 15px; /* Add padding for better spacing */
-  }
-
-  .modal-offcanvas .offcanvas-header {
-    border-bottom: none; /* Remove bottom border for header */
-    padding: 10px 0; /* Adjust padding */
-  }
-
-  .modal-offcanvas .offcanvas-title {
-    font-size: 1.1rem; /* Decrease font size for title */
-    margin-bottom: 10px; /* Adjust margin */
+    width: 100%;
+    padding: 10px;
   }
 
   .modal-offcanvas .offcanvas-body {
-    padding: 20px; /* Adjust padding for body content */
+    padding: 20px;
   }
 
   .modal-offcanvas .auth-link {
-    font-size: 16px; /* Decrease font size for links */
-    margin-bottom: 15px; /* Adjust margin */
-  }
-
-  .modal-offcanvas .me-2 {
-    width: 100%; /* Adjust width for input */
-    margin-bottom: 15px; /* Adjust margin */
+    font-size: 16px;
   }
 
   .modal-offcanvas .search-button,
   .modal-offcanvas .close-button {
-    width: calc(50% - 10px); /* Adjust button width */
-    margin-top: 10px; /* Adjust top margin */
-    margin-left: 0; /* Remove left margin */
+    width: 80px;
+    height: 25px;
+    font-size: 14px;
+    margin-left: 5px;
+  }
+}
+
+@media (max-width: 320px) {
+  .navbar-container {
+    padding: 0 5px;
+  }
+
+  .logo a {
+    font-size: 18px;
+  }
+
+  .modal-offcanvas .offcanvas-body {
+    padding: 15px;
+  }
+
+  .modal-offcanvas .auth-link {
+    font-size: 14px;
+  }
+
+  .modal-offcanvas .search-button,
+  .modal-offcanvas .close-button {
+    width: 70px;
+    height: 20px;
+    font-size: 12px;
+    margin-left: 5px;
   }
 }

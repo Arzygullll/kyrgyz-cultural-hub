@@ -85,7 +85,7 @@ const SideBar = () => {
               </InputAdornment>
             ),
             placeholder: "Поиск...",
-            sx: { fontSize: "0.9rem" },
+            sx: { fontSize: "0.9rem", color: "#fff" },
           }}
           sx={{
             "& .MuiInputBase-input": {
@@ -111,7 +111,7 @@ const SideBar = () => {
             value="all"
             control={<Radio size="small" />}
             label="Все категории"
-            sx={{ fontSize: "0.9rem", mx: 1 }}
+            sx={{ fontSize: "0.9rem", mx: 1, color: "#fff" }}
           />
           {categories.map((elem) => (
             <FormControlLabel
@@ -119,7 +119,7 @@ const SideBar = () => {
               value={elem.name}
               control={<Radio size="small" />}
               label={elem.name}
-              sx={{ fontSize: "0.9rem", mx: 1 }}
+              sx={{ fontSize: "0.9rem", mx: 1, color: "#fff" }}
             />
           ))}
         </RadioGroup>

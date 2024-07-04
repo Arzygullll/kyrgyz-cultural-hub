@@ -53,7 +53,7 @@ const TourCard = ({ elem }) => {
       <CardActionArea
         sx={{
           position: "relative",
-          height: 360,
+          height: 400,
           overflow: "hidden",
         }}
         onClick={handleOpen}

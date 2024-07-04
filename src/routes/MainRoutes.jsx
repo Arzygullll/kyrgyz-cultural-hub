@@ -10,6 +10,8 @@ import AuthPage from "../pages/AuthPage";
 import KnowledgePage from "../pages/KnowledgePage";
 import ContactPage from "../pages/ContactPage";
 import FavoritePage from "../pages/FavoritePage";
+import ActivitiesPage from "../pages/ActivitiesPage";
+
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -18,11 +20,13 @@ const MainRoutes = () => {
     { id: 3, link: "/edit/:id", element: <EditTour /> },
     { id: 4, link: "/admin", element: <AdminPage /> },
     { id: 5, link: "/cart", element: <CartPage /> },
-    { id: 5, link: "/etnocollection", element: <EtnoCollectionPage /> },
-    { id: 6, link: "/auth", element: <AuthPage /> },
-    { id: 7, link: "/knowledge", element: <KnowledgePage /> },
-    { id: 8, link: "/contact", element: <ContactPage /> },
-    { id: 9, link: "/isfavorite", element: <FavoritePage /> },
+    { id: 6, link: "/etnocollection", element: <EtnoCollectionPage /> },
+    { id: 7, link: "/auth", element: <AuthPage /> },
+    { id: 8, link: "/knowledge", element: <KnowledgePage /> },
+    { id: 9, link: "/contact", element: <ContactPage /> },
+    { id: 10, link: "/isfavorite", element: <FavoritePage /> },
+    { id: 11, link: "/activities", element: <ActivitiesPage /> },
+
   ];
   return (
     <Routes>

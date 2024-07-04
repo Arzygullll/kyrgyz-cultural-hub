@@ -13,7 +13,9 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { useCart } from "../../context/CartContextProvider";
 import { getProductsCountInCart } from "../../helpers/functions";
-import { ShoppingCart } from "@mui/icons-material";
+import ModeOfTravelIcon from "@mui/icons-material/ModeOfTravel";
+import { useAuth } from "../../context/AuthContextProvider";
+import { ADMIN } from "../../helpers/const";
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -26,15 +28,19 @@ const Navbar = () => {
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  // const handleOpenUserMenu = (event) => {
-  //   setAnchorElUser(event.currentTarget);
-  // };
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-  // const handleCloseUserMenu = () => {
-  //   setAnchorElUser(null);
-  // };
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+  const { user, handleLogOut, authListener } = useAuth();
+  React.useEffect(() => {
+    authListener();
+  }, []);
 
   const [show, setShow] = useState(false);
 
@@ -70,10 +76,7 @@ const Navbar = () => {
                 <Link to="/knowledge">Что нужно знать</Link>
               </li>
               <li>
-                <Link to="/blog">Блог</Link>
-              </li>
-              <li>
-                <Link to="/about">О проекте</Link>
+                <Link to="/etnocollection">Этноколлекция</Link>
               </li>
               <li>
                 <Link to="/contact">Контакты</Link>
@@ -94,24 +97,43 @@ const Navbar = () => {
         className="modal-offcanvas"
       >
         <Offcanvas.Body>
-          {/* {user.email === ADMIN ? ( */}
-          <Link to={"/admin"} style={{ textDecoration: "none" }}>
-            <MenuItem sx={{ color: "white", display: "block" }}>
-              <Typography className="textAdmin">АДМИН</Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
+          <Typography sx={{ color: "white" }}>
+            {user ? `Привет, ${user.email}!` : `Привет, гость!`}
+          </Typography>
+          {user.email === ADMIN ? (
+            <Link to={"/admin"} style={{ textDecoration: "none" }}>
+              <MenuItem sx={{ color: "white", display: "block" }}>
+                <Typography className="textAdmin">АДМИН</Typography>
+              </MenuItem>
+            </Link>
+          ) : null}
+          {user.email ? (
+            <MenuItem onClick={() => handleLogOut()}>
+              <Typography className="auth-link" sx={{ color: "white" }}>
+                Выйти
+              </Typography>
             </MenuItem>
-          </Link>
-          {/* ) : null} */}
-          <Nav className="flex-column">
+          ) : (
+            <Link to={"/auth"}>
+              <MenuItem>
+                <Typography className="auth-link" sx={{ color: "white" }}>
+                  Регистрация
+                </Typography>
+              </MenuItem>
+            </Link>
+          )}
+          {/* <Nav className="flex-column">
             <Nav.Link as={Link} to="/login" className="auth-link">
               Войти
             </Nav.Link>
             <Nav.Link as={Link} to="/register" className="auth-link">
               Регистрация
             </Nav.Link>
-          </Nav>
+          </Nav> */}
           <Link to={"/cart"}>
             <Badge badgeContent={badgeCount} color="success">
-              <ShoppingCart sx={{ color: "white", marginBottom: "10px" }} />
+              <ModeOfTravelIcon sx={{ color: "white", marginBottom: "10px" }} />
             </Badge>
           </Link>
           <Form className="d-flex mb-3">
@@ -139,7 +161,7 @@ const Navbar = () => {
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              onClick={handleOpenUserMenu}
               color="inherit"
             >
               <MenuIcon />

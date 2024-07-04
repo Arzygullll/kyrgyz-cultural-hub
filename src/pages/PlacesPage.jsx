@@ -5,16 +5,25 @@ import { Container, Grid } from "@mui/material";
 
 const PlacesPage = () => {
   return (
-    <Container maxWidth="lg" sx={{ mt: 4 }}>
-      <Grid container spacing={3} sx={{ marginTop: "40px" }}>
-        <Grid item xs={12} md={3}>
-          <SideBar />
+    <div
+      style={{
+        backgroundImage: `url(${require("../components/homePage/assets/Kyrgyzstan.jpg")})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        minHeight: "103.5vh",
+      }}
+    >
+      <Container maxWidth="100%">
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <SideBar />
+          </Grid>
+          <Grid item xs={12}>
+            <TourList />
+          </Grid>
         </Grid>
-        <Grid item xs={12} md={9}>
-          <TourList />
-        </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </div>
   );
 };
 

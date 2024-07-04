@@ -9,13 +9,14 @@ import {
   CardContent,
   CardMedia,
   IconButton,
-  Rating,
   Stack,
   Typography,
 } from "@mui/material";
-import { AddShoppingCart } from "@mui/icons-material";
+import { Favorite, Delete, Edit, AddShoppingCart } from "@mui/icons-material";
 import Detail from "./Detail";
 import { ADMIN } from "../../helpers/const";
+import { useAuth } from "../../context/AuthContextProvider";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 const TourCard = ({ elem }) => {
   const { addProductToCart, checkProductInCart, deleteProductFromCart } =
@@ -29,71 +30,117 @@ const TourCard = ({ elem }) => {
     deleteProduct(elem.id);
     deleteProductFromCart(elem.id);
   };
-  //   const { user } = useAuth();
+  const { user } = useAuth();
+
   return (
     <Card
       sx={{
-        height: 650,
-        boxShadow: "none",
-        margin: "2%",
-        width: { md: "30vw", lg: "19vw" },
+        maxWidth: 345,
+        width: "100%",
+        height: "100%",
+        margin: 1,
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+        borderRadius: 12,
+        overflow: "hidden",
+        position: "relative",
+        background: "rgba(240, 240, 240, 0.8)",
+        transition: "transform 0.3s ease",
+        "&:hover": {
+          transform: "scale(1.03)",
+        },
       }}
     >
-      <CardActionArea onClick={handleOpen}>
-        <CardMedia sx={{ height: 240, borderRadius: 4 }} image={elem.image} />
-      </CardActionArea>
-      <CardContent
+      <CardActionArea
         sx={{
-          padding: "20px 5px 0px 5px",
-          display: "flex",
-          height: 300,
-          flexDirection: "column",
-          justifyContent: "space-between",
+          position: "relative",
+          height: 400,
+          overflow: "hidden",
         }}
+        onClick={handleOpen}
       >
-        <Typography variant="h5" fontSize="20" fontWeight={700} component="div">
-          {elem.title}
-        </Typography>
-        <Stack>
-          <Rating name="half-rating" defaultValue={0} precision={1} />
-        </Stack>
-        <Typography color="black" fontSize="24px" fontWeight={700}>
-          {elem.price}kgs
-        </Typography>
-        <Typography color="gray" fontSize="24px" fontWeight={700}>
-          {elem.description}
-        </Typography>
-        {/* {user.email === ADMIN ? (
-          <> */}
-        <Button
-          color="secondary"
-          variant="outlined"
-          size="medium"
-          onClick={handleDelete}
-        >
-          Delete
-        </Button>
-        <Button
-          onClick={() => navigate(`/edit/${elem.id}`)}
-          variant="outlined"
-          color="primary"
-          size="medium"
-        >
-          Edit
-        </Button>
-        {/* </>
-        ) : ( */}
-        <IconButton
+        <CardMedia
+          component="img"
+          image={elem.image}
+          alt={elem.title}
           sx={{
-            backgroundColor: checkProductInCart(elem.id) ? "black" : "",
-            color: checkProductInCart(elem.id) ? "white" : "",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            filter: "brightness(80%)",
+            transition: "transform 0.3s ease",
+            "&:hover": {
+              transform: "scale(1.1)",
+            },
           }}
-          onClick={() => addProductToCart(elem)}
+        />
+        <CardContent
+          sx={{
+            textAlign: "left",
+            p: 3,
+            position: "absolute",
+            bottom: 0,
+            background: "rgba(0, 0, 0, 0.2)",
+            color: "#fff",
+            width: "100%",
+            transition: "background 0.3s ease",
+            "&:hover": {
+              background: "rgba(0, 0, 0, 0.5)",
+            },
+          }}
         >
-          <AddShoppingCart />
-        </IconButton>
-        {/* )} */}
-      </CardContent>
+          <Typography variant="h6" fontWeight={700} gutterBottom>
+            {elem.title}
+          </Typography>
+          {/* <Typography variant="body2" sx={{ mb: 2 }}>
+            {elem.description}
+          </Typography> */}
+          <Typography variant="h6" color="primary">
+            {elem.price} $
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+        p={2}
+      >
+        <Stack direction="row">
+          {user.email === ADMIN ? (
+            <>
+              <AddShoppingCartIcon
+                sx={{
+                  color: checkProductInCart(elem.id) ? "red" : "inherit",
+                }}
+                onClick={() => addProductToCart(elem)}
+              >
+                <Favorite />
+              </AddShoppingCartIcon>
+              <Button
+                startIcon={<Delete />}
+                color="secondary"
+                size="small"
+                onClick={handleDelete}
+              ></Button>
+              <Button
+                startIcon={<Edit />}
+                onClick={() => navigate(`/edit/${elem.id}`)}
+                color="primary"
+                size="small"
+              ></Button>
+            </>
+          ) : (
+            <AddShoppingCartIcon
+              sx={{
+                color: checkProductInCart(elem.id) ? "red" : "inherit",
+              }}
+              onClick={() => addProductToCart(elem)}
+            >
+              <Favorite />
+            </AddShoppingCartIcon>
+          )}
+        </Stack>
+      </Stack>
       <Detail elem={elem} open={open} handleClose={handleClose} />
     </Card>
   );

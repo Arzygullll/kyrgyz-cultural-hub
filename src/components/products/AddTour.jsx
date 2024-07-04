@@ -1,12 +1,10 @@
+import { Box, Button, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { useProduct } from "../../context/TourContextProvider";
-import { Box, Button, TextField, Typography } from "@mui/material";
 import CategorySelect from "./CategorySelect";
 
-const AddTour = () => {
+const AddProduct = () => {
   const { createProduct } = useProduct();
-
-  const [activeInputIndex, setActiveInputIndex] = useState(0);
   const [product, setProduct] = useState({
     title: "",
     description: "",
@@ -15,79 +13,110 @@ const AddTour = () => {
     category: "",
   });
 
-  const inputs = [
-    { label: "Название", name: "title", component: TextField },
-    { label: "Описание", name: "description", component: TextField },
-    { label: "Цена", name: "price", component: TextField },
-    { label: "Изображение", name: "image", component: TextField },
-    {
-      label: "category",
-      name: "category",
-      component: CategorySelect,
-    },
-  ];
-
   const handleInput = (e) => {
-    const { name, value } = e.target;
-    setProduct((prevProduct) => ({
-      ...prevProduct,
-      [name]: name === "price" ? Number(value) : value,
-    }));
-
-    if (value && activeInputIndex < inputs.length - 1) {
-      setActiveInputIndex((prevIndex) => prevIndex + 1);
+    if (e.target.name === "price") {
+      const obj = {
+        ...product,
+        [e.target.name]: Number(e.target.value),
+      };
+      setProduct(obj);
+    } else {
+      const obj = {
+        ...product,
+        [e.target.name]: e.target.value,
+      };
+      setProduct(obj);
     }
   };
 
   const handleClick = () => {
     createProduct(product);
+    // Очистка полей после добавления продукта (опционально)
+    setProduct({
+      title: "",
+      description: "",
+      price: 0,
+      image: "",
+      category: "",
+    });
   };
 
   return (
     <Box
       sx={{
-        width: "100%",
-        maxWidth: "600px",
+        width: "50vw",
         margin: "20px auto",
         padding: "20px",
-        backgroundColor: "#ffffff",
-        boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
-        borderRadius: "8px",
-        textAlign: "center",
+        backgroundColor: "rgba(255, 255, 255, 0.6)", // Легкий полупрозрачный фон
+        borderRadius: "10px",
+        boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.1)", // Тень для глубины
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        transition: "all 0.3s ease-in-out", // Анимация для плавности изменений
+        "&:hover": {
+          transform: "scale(1.02)", // Масштабирование при наведении
+          boxShadow: "0px 0px 30px rgba(0, 0, 0, 0.2)", // Усиленная тень при наведении
+        },
       }}
     >
-      <Typography variant="h5" gutterBottom sx={{ color: "#1976d2" }}>
-        Добавить продукт
+      <Typography variant="h4" align="center" gutterBottom>
+        СТРАНИЦА АДМИНИСТРАТОРА
       </Typography>
-      {inputs.map(
-        (input, index) =>
-          index <= activeInputIndex && (
-            <Box key={input.name} sx={{ marginBottom: "16px" }}>
-              <input.component
-                name={input.name}
-                label={input.label}
-                value={product[input.name]}
-                onChange={handleInput}
-                fullWidth
-                variant="outlined"
-                sx={{ backgroundColor: "#f9f9f9" }}
-              />
-            </Box>
-          )
-      )}
-      {activeInputIndex === inputs.length - 1 && (
-        <Button
-          onClick={handleClick}
-          fullWidth
-          variant="contained"
-          color="primary"
-          sx={{ marginTop: "16px" }}
-        >
-          Добавить продукт
-        </Button>
-      )}
+      <TextField
+        name="title"
+        value={product.title}
+        fullWidth
+        label="Название"
+        variant="outlined"
+        onChange={handleInput}
+        style={{ marginBottom: "15px" }}
+      />
+      <TextField
+        name="description"
+        value={product.description}
+        fullWidth
+        label="Описание"
+        variant="outlined"
+        onChange={handleInput}
+        style={{ marginBottom: "15px" }}
+      />
+      <TextField
+        name="image"
+        value={product.image}
+        fullWidth
+        label="URL изображения"
+        variant="outlined"
+        onChange={handleInput}
+        style={{ marginBottom: "15px" }}
+      />
+      <TextField
+        name="price"
+        value={product.price}
+        fullWidth
+        label="Цена"
+        type="number"
+        variant="outlined"
+        onChange={handleInput}
+        style={{ marginBottom: "15px" }}
+      />
+      <CategorySelect handleInput={handleInput} />
+      <Button
+        onClick={handleClick}
+        fullWidth
+        variant="contained"
+        color="primary"
+        style={{
+          marginTop: "20px",
+          borderRadius: "20px",
+          padding: "12px 0",
+          fontWeight: "bold",
+        }}
+      >
+        Добавить
+      </Button>
     </Box>
   );
 };
 
-export default AddTour;
+export default AddProduct;

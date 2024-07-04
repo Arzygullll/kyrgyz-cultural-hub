@@ -1,79 +1,37 @@
 import React from "react";
-import "./ContactPage.css";
+import styles from "./ContactPage.module.css";
 
 const ContactPage = () => {
   return (
-    <div className="contactPage">
-      <h1 className="title">Контакты</h1>
-      <p>
-        Добро пожаловать на страницу контактов Kyrgyz Culture Hub! Свяжитесь с
-        нами, используя любую из приведенных ниже контактных информации:
-      </p>
+    <div className={styles.contactPage}>
+      <div className={styles.content}>
+        <h1 className={styles.title}>CONTACTS</h1>
+        <div className={styles.contactInfo}>
+          <p>KyrgyzCulturalHub@mail.kg</p>
 
-      <div className="section">
-        <h2 className="sectionTitle">Email</h2>
-        <p>info@kyrgyzculturehub.com</p>
-      </div>
-
-      <div className="section">
-        <h2 className="sectionTitle">Телефон</h2>
-        <p>+996 123 456 789</p>
-      </div>
-
-      <div className="section">
-        <h2 className="sectionTitle">Адрес</h2>
-        <p>г. Бишкек, ул. Советская, 123</p>
-      </div>
-
-      <div className="section">
-        <h2 className="sectionTitle">Социальные сети</h2>
-        <p>
-          <a
-            href="https://facebook.com/kyrgyzculturehub"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link"
-          >
-            Facebook
+          <p>Телефоны и контакты по вопросам реализации и сотрудничество.</p>
+        </div>
+        <div className={styles.images}>
+          <img
+            src="https://i.pinimg.com/564x/33/a7/25/33a725cd164770eb17e9f3ea2c6963b3.jpg"
+            alt="Картина 1"
+          />
+          <img
+            src="https://i.pinimg.com/564x/cb/03/b1/cb03b1675ef0752e7ca958c40bf0ee01.jpg"
+            alt="Картина 2"
+          />
+        </div>
+        <div className={styles.socialLinks}>
+          <a href="https://web.telegram.org/a/" className={styles.socialLink}>
+            TELEGRAM
           </a>
-          <a
-            href="https://instagram.com/kyrgyzculturehub"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link"
-          >
-            Instagram
+          <a href="https://web.whatsapp.com/" className={styles.socialLink}>
+            WHATSAPP
           </a>
-          <a
-            href="https://twitter.com/kyrgyzculturehub"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link"
-          >
-            Twitter
+          <a href="https://www.instagram.com/" className={styles.socialLink}>
+            INSTAGRAM
           </a>
-        </p>
-      </div>
-
-      <div className="section">
-        <h2 className="sectionTitle">Форма обратной связи</h2>
-        <form>
-          <div className="formGroup">
-            <label className="label">Имя:</label>
-            <input type="text" name="name" required className="input" />
-          </div>
-          <div className="formGroup">
-            <label className="label">Email:</label>
-            <input type="email" name="email" required className="input" />
-          </div>
-          <div className="formGroup">
-            <label className="label">Сообщение:</label>
-            <textarea name="message" required className="textarea"></textarea>
-          </div>
-          <button type="submit" className="button">
-            Отправить
-          </button>
-        </form>
+        </div>
       </div>
     </div>
   );
